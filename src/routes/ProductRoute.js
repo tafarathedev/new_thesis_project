@@ -5,7 +5,7 @@ router.post('/postProducts', async (req,res)=>{
    const product = new Product(req.body)
   try{
     await product.save()
-    res.status(200).send(product)
+    res.status(200).send({body:product})
   }catch(e){
     res.sendStatus(400)
   }
