@@ -3,13 +3,9 @@ const Product = require('../models/ProductModel')
 //routes
 router.post('/postProducts', async (req,res)=>{
    const product = new Product(req.body)
-  try{
     await product.save()
     res.status(200).send({body:product})
-  }catch(e){
-    res.sendStatus(400)
-  }
-   
+ 
 })
 router.get('/getProducts', async (req,res)=>{
   const product = await Product.find({})
@@ -62,4 +58,4 @@ router.delete('/deleteAllProducts', async (req,res)=>{
 
 
 
-module.exports = router
+/*  module.exports = router*/

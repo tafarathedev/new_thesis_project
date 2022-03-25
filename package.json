@@ -1,23 +1,26 @@
 {
-  "name": "auth",
+  "name": "thesis_project-",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+   "start":"node src/index.js",
+   "dev":"nodemon src/index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tafarathedev/new_thesis_project.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tafarathedev/new_thesis_project/issues"
+  },
+  "homepage": "https://github.com/tafarathedev/new_thesis_project#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "hbs": "^4.2.0",
-    "moment": "^2.29.1",
-    "mongodb": "^4.4.1",
-    "mongoose": "^6.2.4"
+    "mongoose": "^6.2.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
