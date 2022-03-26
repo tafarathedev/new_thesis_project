@@ -11,7 +11,7 @@ router.get('/getProducts', async (req,res)=>{
   const product = await Product.find({})
  try{
   
- res.send(product)
+  res.status(200).send({body:product})
  }catch(e){
    res.sendStatus(400)
  }
@@ -22,7 +22,7 @@ router.get('/getOneProduct/:id', async (req,res)=>{
   const product = await Product.findById(req.params.id)
  try{
   
-   res.status(200).send(product)
+  res.status(200).send({body:product})
  }catch(e){
    res.sendStatus(400)
  }
@@ -35,7 +35,7 @@ router.delete('/deleteOneProduct/:id', async (req,res)=>{
   const product = await Product.findOneAndDelete({id:req.params.id})
  try{
   
-   res.status(200).send(product)
+  res.status(200).send({body:product})
  }catch(e){
    res.sendStatus(400)
  }
