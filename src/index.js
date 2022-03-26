@@ -21,7 +21,7 @@ app.get('/getProducts', async (req,res)=>{
     const product = await Product.find({})
    try{
     
-   res.send(product)
+    res.status(201).send({post:product})
    }catch(e){
      res.sendStatus(400)
    }
@@ -32,7 +32,7 @@ app.get('/getProducts', async (req,res)=>{
     const product = await Product.findById(req.params.id)
    try{
     
-     res.status(200).send(product)
+     res.status(200).send({post:products})
    }catch(e){
      res.sendStatus(400)
    }
@@ -45,7 +45,7 @@ app.get('/getProducts', async (req,res)=>{
     const product = await Product.findOneAndDelete({id:req.params.id})
    try{
     
-     res.status(200).send(product)
+    res.status(201).send({post:product})
    }catch(e){
      res.sendStatus(400)
    }
@@ -56,7 +56,7 @@ app.get('/getProducts', async (req,res)=>{
     const product = await Product.find({})
    try{
      await product.remove()
-     res.status(200)
+     res.status(201).send({post:product})
    }catch(e){
      res.sendStatus(400)
    }
