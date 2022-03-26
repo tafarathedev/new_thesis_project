@@ -4,64 +4,22 @@ require('dotenv').config()
 require('./server/server')
 const app = express()
 const port = process.env.PORT || 3000
-const Product = require('./models/ProductModel')
-//const ProductRouter = require('./routes/ProductRoute')
+const UserRouter = require('./routes/userRoute')
+
+const ProductRouter = require('./routes/ProductRoute')
 
 
 //hbs
 
 /* app.use(express.json()) */ //body parser
 app.use(express.json())
-app.post('/postProducts' , async( req,res)=>{
- const product = new Product(req.body)
-   await product.save()
-   res.status(201).send({post:product})
-})
-app.get('/getProducts', async (req,res)=>{
-    const product = await Product.find({})
-   try{
-    
-    res.status(201).send({post:product})
-   }catch(e){
-     res.sendStatus(400)
-   }
-    
-  })
-  
-  app.get('/getOneProduct/:id', async (req,res)=>{
-    const product = await Product.findById(req.params.id)
-   try{
-    
-     res.status(200).send({post:products})
-   }catch(e){
-     res.sendStatus(400)
-   }
-    
-  })
+app.use(ProductRouter)
+app.use(UserRoute)
   
   
-  //delete one
-  app.delete('/deleteOneProduct/:id', async (req,res)=>{
-    const product = await Product.findOneAndDelete({id:req.params.id})
-   try{
-    
-    res.status(201).send({post:product})
-   }catch(e){
-     res.sendStatus(400)
-   }
-    
-  })
-  //delete all
-  app.delete('/deleteAllProducts', async (req,res)=>{
-    const product = await Product.find({})
-   try{
-     await product.remove()
-     res.status(201).send({post:product})
-   }catch(e){
-     res.sendStatus(400)
-   }
-    
-  })
+  
+  
+  
   
 
 
